@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    ​<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="config.js"> </script>
+    <script src="controller.js"></script>
+    
+</head>
+
+<body>
+<h1 style='text-align: center;'>5 Day Current Weather Forecast</h1>
+<hr>
+
+<p>Welcome to the current weather forecast app! To get the current weather forecast for a city,
+    simply enter the zip code below!
+</p>
+
+<div ng-app="weatherApp" ng-controller="weatherCtrl">
+
+Input zip code: <input type="text" inputmode="numeric" pattern="[0-9]*" ng-model="zipCode"><br>
+
+{{msg}}
+<h2 id='cityName' style='text-align: center;'>
+    5 Day Forecast for:
+    <br>
+    <h1 style='text-align: center;'>{{data.city}}</h1>
+</h2>
+
+<hr>
+<table id='dataTable' class='table'>
+    <thead>
+        <tr style='text-align: center;'>
+            <th>Date</th>
+            <th>Temperature (Fahrenheit)</th>
+            <th>Pressure (hpa)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='dataPoint in data'>
+            <td>{{dataPoint.date}}</td>
+            <td>{{dataPoint.temp}}</td>
+            <td>{{dataPoint.pressure}}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+
+</body>
+</html>
